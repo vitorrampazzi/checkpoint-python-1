@@ -1,0 +1,28 @@
+Código
+
+lista = []
+while True:
+    print('1 - Cadastrar um novo aluno')
+    print('2 - listar alunos cadastrados')
+    print('3 - Ver estatísticas')
+    print('4 - Sair do programa')
+    opcao = input('Escolha uma opção: ')
+    match opcao:
+        case '1':
+            nome = input('Escreva o novo aluno')
+            idade = int(input('Escreva a idade do aluno'))
+            nota1 = int(input('Escreva a primeira nota'))
+            nota2 = int(input('Escreva a segunda nota'))
+            nota3 = int(input('Escreva a terceira nota'))
+            lista.append(nome)
+            lista.append(idade)
+            lista.append(nota1)
+            lista.append(nota2)
+            lista.append(nota3)
+            print('Aluno cadastrado!')
+            media = (nota1 + nota2 + nota3) / 3
+        case '2':
+            print(lista)
+        case '4':
+            break
+
