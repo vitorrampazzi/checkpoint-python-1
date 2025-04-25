@@ -1,7 +1,8 @@
-Código
+# Codigo - Checkpoint - Python - 1
 
 lista = []
 while True:
+    print('-----------MENU-----------')
     print('1 - Cadastrar um novo aluno')
     print('2 - listar alunos cadastrados')
     print('3 - Ver estatísticas')
@@ -11,18 +12,57 @@ while True:
         case '1':
             nome = input('Escreva o novo aluno')
             idade = int(input('Escreva a idade do aluno'))
-            nota1 = int(input('Escreva a primeira nota'))
-            nota2 = int(input('Escreva a segunda nota'))
-            nota3 = int(input('Escreva a terceira nota'))
-            lista.append(nome)
-            lista.append(idade)
-            lista.append(nota1)
-            lista.append(nota2)
-            lista.append(nota3)
+            notas = []
+            for i in range(3):
+                while True:
+                    nota = float(input('insira as notas de 0 a 10: '))
+                    if 0 <= nota <= 10:
+                        notas.append(nota)
+                        break
+                    else:
+                        print('Nota inválida, tente novamente.')
+            aluno ={
+            'nome': nome,
+            'idade': idade,
+            'notas': notas
+            }
+            lista.append(aluno)
             print('Aluno cadastrado!')
-            media = (nota1 + nota2 + nota3) / 3
         case '2':
-            print(lista)
+            if len(lista) == 0:
+                print('Não tem nenhum aluno cadastrado')
+            else:
+                print(f"Nome: {aluno['nome']}, Idade: {aluno['idade']}, Notas: {aluno['notas']}")
+        case '3':
+            if len(lista) == 0:
+                print('Não tem alunos para analisar.')
+            else:
+                soma_idades = 0
+                maior_media = 0
+                nome_maior_media = ''
+                aprovados = 0
+
+                for aluno in lista:
+                    soma_idades += aluno['idade']
+                    media_notas = sum(aluno['notas']) / len(aluno['notas'])
+
+                    if media_notas > maior_media:
+                        maior_media = media_notas
+                        nome_maior_media = aluno['nome']
+
+                    if media_notas >= 7:
+                        aprovados += 1
+
+                media_idade = soma_idades / len(lista)
+
+                print(f'Média de idade dos alunos: {media_idade}')
+                print(f'Maior média de notas: {maior_media} é do aluno: {nome_maior_media}')
+                print(f'Alunos aprovados: {aprovados} de {len(lista)}')
+
         case '4':
+            print('Saindo do programa!')
             break
 
+
+        case _:
+            print('Escolha uma opção válida.')
