@@ -1,6 +1,7 @@
 # Codigo - Checkpoint - Python - 1
 
 lista = []
+
 while True:
     print('-----------MENU-----------')
     print('1 - Cadastrar um novo aluno')
@@ -27,12 +28,13 @@ while True:
             'notas': notas
             }
             lista.append(aluno)
-            print('Aluno cadastrado!')
+            print('Aluno cadastrado com sucesso!')
         case '2':
             if len(lista) == 0:
-                print('Não tem nenhum aluno cadastrado')
+                print('Não tem nenhum aluno cadastrado.')
             else:
-                print(f"Nome: {aluno['nome']}, Idade: {aluno['idade']}, Notas: {aluno['notas']}")
+                for aluno in lista:
+                    print(f"Nome: {aluno['nome']}, Idade: {aluno['idade']}, Notas: {aluno['notas']}")
         case '3':
             if len(lista) == 0:
                 print('Não tem alunos para analisar.')
@@ -66,3 +68,4 @@ while True:
 
         case _:
             print('Escolha uma opção válida.')
+
