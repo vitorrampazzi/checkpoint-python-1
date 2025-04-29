@@ -1,4 +1,4 @@
-## Vitor rampazzi franco
+## Vitor Rampazzi Franco
 ------------------------
 ## Daniel Brito
 ------------------------
